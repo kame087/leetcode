@@ -33,7 +33,7 @@ HIGH LEVEL:
       you've found the pivot index
     otherwise update leftSum with adding the currentNumber
   
-  if you havent' found the pivot index by now....return -1
+  if you haven't found the pivot index by now....return -1
 
 """
 
