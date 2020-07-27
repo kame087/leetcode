@@ -17,6 +17,9 @@ class Solution:
                             - second nested loop traverses through combos between C & D
                         - make a temp_sum and see if it's counterpart is in hashmapAB
                         - if it is, update count with frequencies of counterpart
+
+                Time: O(n^2)
+                Space: O(n^2)
         
         """
         
