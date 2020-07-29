@@ -27,5 +27,34 @@ class Solution:
               result.append(key)
               
       return result
+
+    def findDuplicatesOptimized(self, nums):
+        """
+            HIGH LEVEL:
+                Traverse the list i = 1 to n:
+                    index = abs(element@i) - 1
+                    go to that index, if element @index < 1:
+                        add abs(element@i) to result
+                    otherwise:
+                        convert element@index to a negative value
+                
+                return result
+
+                Complexities:
+                    Time: O(n)
+                    Space, O(1)
+
+        """
+
+        result = []
+
+        for i in range(len(nums)):
+            index = abs(nums[i]) - 1
+            if nums[index] < 1:
+                result.append(abs(nums[i]))
+            else:
+                nums[index] *= -1
+
+        return result
     
         
