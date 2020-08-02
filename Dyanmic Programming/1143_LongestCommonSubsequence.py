@@ -11,49 +11,34 @@ class Solution:
             The reason for this is because we want to zero out the zero indices of the matrix so we have a default value
             from where to start from.
 
-            loop through row of matrix:
-              loop through col of matrix:
-                if i or j is 0:
-                  matrix[i][j] = 0 (the zero-out part)
+            loop through length of text2:
+              loop through length of text1:
+                if str1[i] == str2[j] NOTE: Pay close attention to the index values when comparing the chars at each index because i for matrix != i for str1, etc.
+                  * matrix[i+1][j+1] = diagnonal value + 1 (matrix[i][j] + 1)
                 else:
-                  if str1[i-1] == str2[j-1] NOTE: Pay close attention to the index values when comparing the chars at each index because i for matrix != i for str1, etc.
-                    * matrix[i][j] = diagnonal value + 1
-                  else:
-                    matrix[i][j] = max(left neighbor, top neighbor)
+                  matrix[i+1][j+1] = max(left neighbor, top neighbor) # max(matrix[i+1][j], max[i][j+1])
 
-            length = last value of the matrix (matrix[n-1][m-1])
-            
-            if length != Null:
-              return length
-            
-            return 0 (this means there's no common subsequence)
+            return the last element in the matrix (matrix[-1][-1])
 
             Time: O(n*m), n = len(text1), m = len(text2)
             Space: O(n*m)
       """
-
-
+      
+      
       col = len(text1) + 1
       row = len(text2) + 1
-      
-      matrix = [[None for i in range(col)] for j in range(row)]
-      
-      
-      for i in range(row):
-          for j in range(col):
-              if i == 0 or j == 0:
-                  matrix[i][j] = 0
-              else: 
-                  if text2[i-1] == text1[j-1]:
-                      matrix[i][j] = matrix[i-1][j-1] + 1
-                  else:
-                      matrix[i][j] = max(matrix[i][j-1], matrix[i-1][j])
-                  
-      length = matrix[-1][-1]
-      
-      if length != None:
-          return length
-      return 0
+        
+      matrix = [[0 for i in range(col)] for j in range(row)]
+        
+        
+      for i in range(len(text2)):
+        for j in range(len(text1)):
+          if text2[i] == text1[j]:
+            matrix[i+1][j+1] = matrix[i][j] + 1
+          else:
+            matrix[i+1][j+1] = max(matrix[i+1][j], matrix[i][j+1])
+          
+      return matrix[-1][-1]
         
         
         
