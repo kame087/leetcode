@@ -15,20 +15,20 @@ class Solution:
       
       """
         
-        def count_ones(number, ones_count):
-            num_bits = 0
-            while number:
-                num_bits += number & 1
-                number >>= 1
-            ones_count.append(num_bits)
-        
-        ones_count = []
-        
-        for i in range(num+1):
-            count_ones(i, ones_count)
-            
-            
-        return ones_count
+      def count_ones(number, ones_count):
+          num_bits = 0
+          while number:
+              num_bits += number & 1
+              number >>= 1
+          ones_count.append(num_bits)
+      
+      ones_count = []
+      
+      for i in range(num+1):
+          count_ones(i, ones_count)
+          
+          
+      return ones_count
     
     
         
